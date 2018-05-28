@@ -1,18 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import App from './app.js';
 
-class Button extends React.Component {
-  render() {
-    return (
-      <button>
-        Start
-      </button>
-    );
-  }
-}
+let element = document.getElementById('root')
 
 ReactDOM.render(
-  <Button />,
-  document.getElementById('root')
+  <App/>, element
 );

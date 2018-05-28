@@ -1,0 +1,64 @@
+html, body {
+    text-size-adjust: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.moodify-logo {
+    height: 60px;
+}
+
+.spotify-logo {
+    height: 30px;
+}
+
+.header {
+    background-color: #191414e7;
+    height: 65px;
+    top: 0px;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.tabbed-primary-navigation {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    box-align: center;
+    align-items: center;
+    float: right;
+}
+
+.navigation-tab {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.pop-up {
+    border: 1px solid gray;
+    width: 200px;
+    padding: 5px;
+    margin:0 auto;
+}
+
+.button-connect {
+    background-color: #191414;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
