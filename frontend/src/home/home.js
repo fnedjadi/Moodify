@@ -3,6 +3,10 @@ import React from 'react'
 import SpotifyLogo from '../img/spotify-logo.png'
 
 class Home extends React.Component {
+    onClickConnect(params) {
+        console.log('Connect to Spotify account');
+    }
+
     render() {
         return(
             <div>
@@ -14,7 +18,9 @@ class Home extends React.Component {
                 </p>
                 <div className='pop-up'>
                     Connect your Spotify account to start now
-                    <button className='button-connect'><img className='spotify-logo' src={SpotifyLogo} alt="Spotify logo"/> Connect </button>
+                    <button className='button-connect' onClick={this.onClickConnect.bind(this)}>
+                        <img className='spotify-logo' src={SpotifyLogo} alt="Spotify logo"/> Connect
+                    </button>
                 </div>
             </div>
         );

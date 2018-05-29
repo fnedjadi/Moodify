@@ -15,11 +15,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-/*<Router history = {browserHistory}>
-<Route path = "/" component = {Index}>
-  <Route path = "/first" component = {FirstPage}>
-  <Route path = "/second" component = {SecondPage}>
-</Route>
-</Router>*/
