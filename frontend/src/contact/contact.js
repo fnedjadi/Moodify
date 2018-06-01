@@ -1,12 +1,9 @@
 import React from 'react';
 
-import Header from '../header/header.js';
-
 class Contact extends React.Component {
   render() {
     return (
-      <div id='faq'>
-      <Header/>
+      <div id='contact'>
         Contact 
       </div>
     );
