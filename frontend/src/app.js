@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 import Header from './header/header.js';
+import Footer from './footer/footer.js';
 
 const Loading = () => <div>Loading...</div>;
 
@@ -37,6 +38,7 @@ const App = () => (
         <Route path="/contact" component={Contact}/>
       </Switch>
     </Router>
+    <Footer/>
   </div>
 );
 
