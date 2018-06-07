@@ -1,0 +1,28 @@
+{
+  "name": "moodify-backend",
+  "version": "1.0.0",
+  "description": "Backend for Moodify app.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fnedjadi/Moodify.git"
+  },
+  "author": "dewolf_v nedjad_f",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fnedjadi/Moodify/issues"
+  },
+  "homepage": "https://github.com/fnedjadi/Moodify#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "spotify-web-api-node": "^3.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
