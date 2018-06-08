@@ -6,15 +6,16 @@ const CLIENT_ID = '6a37cf1e18fd4b2495b1ebd805e02b9d'; // Your client id
 const CLIENT_SECRET = '1f744596799f4f97a82a9dbf8d1b809c'; // Your secret
 const REDIRECT_URI = 'http://localhost:8080/callback'; // Your redirect uri
 const STATE_KEY = 'spotify_auth_state';
+const ACCESS_TOKEN_KEY = 'spotify_access_token';
 const AUTH_SCOPES = 'user-read-private user-read-email';
 
 
 module.exports = {
     login: function (req, res) {
         const state = utils.generateRandomString(16);
-        
+
         res.cookie(STATE_KEY, state);
-        
+
         res.redirect('https://accounts.spotify.com/authorize?' +
             querystring.stringify({
                 response_type: 'code',
@@ -63,6 +64,8 @@ module.exports = {
                     var access_token = body.access_token,
                         refresh_token = body.refresh_token;
 
+                    res.cookie(ACCESS_TOKEN_KEY, access_token);
+
                     var options = {
                         url: 'https://api.spotify.com/v1/me',
                         headers: { 'Authorization': 'Bearer ' + access_token },
@@ -87,6 +90,38 @@ module.exports = {
                         }));
                 }
             });
+        }
+    },
+
+    userInfo: function (req, res) {
+
+        const access_token = req.cookies ? req.cookies[ACCESS_TOKEN_KEY] : null;
+
+        if (!!access_token) {
+            var options = {
+                url: 'https://api.spotify.com/v1/me',
+                headers: { 'Authorization': 'Bearer ' + access_token },
+                json: true
+            };
+    
+            // use the access token to access the Spotify Web API
+            request.get(options, function (error, response, body) {
+                if (!error && response.statusCode === 200) {
+                    res.send(body);
+                }
+                else if (!error) {
+                    if (!!response.body)
+                        res.send(response.body)
+                    else
+                        res.send(response);
+                } else {
+                    res.send(error);
+                }
+            })
+        }
+        else {
+            res.status(401);
+            res.send("User not logged in");
         }
     }
 }
