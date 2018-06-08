@@ -11,6 +11,7 @@ class Connect extends React.Component {
                 <div className='home-popup'>
                     <h4> Connect your Spotify account to start now </h4>
                     <a className='button-connect' target="_blank" rel="noopener noreferrer" href='localhost:8080/login'>Connect to Spotify</a>
+                    <a className='button-connect' href='http://localhost:8080/login'>Connect to Spotify</a>
                 </div>
             </div>
         );
