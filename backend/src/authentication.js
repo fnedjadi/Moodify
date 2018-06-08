@@ -27,7 +27,8 @@ module.exports = {
     },
 
     logout: function (req, res) {
-
+        res.clearCookie(ACCESS_TOKEN_KEY);
+        res.redirect('http://localhost:3000');
     },
 
     authCallback: function (req, res) {
@@ -64,7 +65,6 @@ module.exports = {
                         refresh_token = body.refresh_token;
 
                     res.cookie(ACCESS_TOKEN_KEY, access_token);
-                    res.cookie("testCookie", "testValue");
 
                     var options = {
                         url: 'https://api.spotify.com/v1/me',

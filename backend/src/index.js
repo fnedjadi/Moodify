@@ -28,7 +28,7 @@ app.get('/ping', function(req, res) {
 app.get('/login', auth.login);
 app.get('/callback', auth.authCallback);
 
-app.get('logout', auth.logout);
+app.get('/logout', auth.logout);
 
 app.get('/userInfo', auth.userInfo);
 

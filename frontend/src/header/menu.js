@@ -26,7 +26,7 @@ class Menu extends React.Component {
 
   getUserNavLink() {
     if (this.state.userData) {
-      return (<li> <a className="navigation-tab" href="http://localhost:8080/logout">{this.state.userData.email}</a></li>);
+      return (<li> <a className="navigation-tab" href="http://localhost:8080/logout">Logout ({this.state.userData.email})</a></li>);
     }
     else {
       return (<li> <a className="navigation-tab" href="http://localhost:8080/login"> Sign in </a> </li>);
