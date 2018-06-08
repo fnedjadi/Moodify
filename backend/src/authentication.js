@@ -64,6 +64,7 @@ module.exports = {
                         refresh_token = body.refresh_token;
 
                     res.cookie(ACCESS_TOKEN_KEY, access_token);
+                    res.cookie("testCookie", "testValue");
 
                     var options = {
                         url: 'https://api.spotify.com/v1/me',
@@ -90,9 +91,13 @@ module.exports = {
 
     userInfo: function (req, res) {
 
-        console.log("cookies: " + JSON.stringify(req.cookies));
+        //console.log("cookies: " + JSON.stringify(req.cookies));
 
-        const access_token = req.cookies ? req.cookies[ACCESS_TOKEN_KEY] : null;
+        //const access_token = req.cookies ? req.cookies[ACCESS_TOKEN_KEY] : null;
+        
+        const access_token = req.query ? req.query.access_token : null;
+
+        console.log(access_token);
 
         if (!!access_token) {
             var options = {

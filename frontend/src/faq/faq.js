@@ -1,28 +1,25 @@
 import React from 'react';
+import cookie from 'react-cookies';
 
 class FAQ extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
-      userData: "toto"
+      userData: null
     }
   }
 
   componentDidMount() {
-    const options = {
-      method: 'GET',
-      credentials: 'include',
-    }
 
-    fetch('http://localhost:8080/userInfo', options)
+    fetch('http://localhost:8080/userInfo?access_token=' + cookie.load('spotify_access_token') )
+    .then(response => response.json())
     .then(response => {
       console.log("responded");
       console.log(response);
       console.log("responded");
 
       this.setState({
-        userData: response.body
+        userData: response
       })
     })
   }
@@ -40,7 +37,7 @@ class FAQ extends React.Component {
         <p>
           {document.cookie}
         </p>
-        <h2>{this.state.userData.email}</h2>
+        <h2>{this.state.userData ? this.state.userData.email : null}</h2>
       </div>
     );
   }
