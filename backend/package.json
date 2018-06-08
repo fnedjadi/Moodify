@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
+    "debug": "node --inspect src/index.js",
     "dev": "nodemon src/index.js",
     "test": "test"
   },
@@ -19,8 +20,11 @@
   },
   "homepage": "https://github.com/fnedjadi/Moodify#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
-    "spotify-web-api-node": "^3.1.1"
+    "querystring": "^0.2.0",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
