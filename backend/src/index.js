@@ -1,5 +1,7 @@
-const express = require('express')
+const express = require('express');
 const Spotify = require('spotify-web-api-node');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const app = express()
 const CLIENT_ID = '6a37cf1e18fd4b2495b1ebd805e02b9d'; // Your client id
@@ -15,8 +17,16 @@ const spotifyApi = new Spotify({
   redirectUri: REDIRECT_URI
 });
 
+app.use(cookieParser());
+app.use(cors());
+
+
 app.get('/', function (req, res) {
   res.send('Moodify! <a href="/login">login</a>')
+})
+
+app.get('/ping', function(req, res) {
+  res.send('pong');
 })
 
 app.listen(8080, function () {
@@ -41,6 +51,15 @@ app.get('/login', (_, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(AUTH_SCOPES, state));
 });
 
+app.get('/userInfo', (req, res) => {
+  spotifyApi.getMe()
+  .then(function(data) {
+    res.send(data);
+  }, function(err) {
+    console.log("Error getting user info: ", err);
+  })
+})
+
 app.get('/callback', (req, res) => {
   const { code, state } = req.query;
   const storedState = req.cookies ? req.cookies[STATE_KEY] : null;
@@ -52,7 +71,8 @@ app.get('/callback', (req, res) => {
       const { expires_in, access_token, refresh_token } = data.body;
       spotifyApi.setAccessToken(access_token);
       spotifyApi.setRefreshToken(refresh_token);
-      res.redirect(`/#/user/${access_token}/${refresh_token}`);
+      //res.redirect(`/#/user/${access_token}/${refresh_token}`);
+      res.redirect(`http://localhost:3000/faq/${access_token}/${refresh_token}`);
     }).catch(err => {
       res.redirect('/#/error/invalid token');
     });
