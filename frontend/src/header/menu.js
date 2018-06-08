@@ -6,9 +6,6 @@ class Menu extends React.Component {
     super(props);
   }
 
-
-  
-
   render() {
     return (
         <ul className="tabbed-primary-navigation">

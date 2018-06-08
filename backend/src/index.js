@@ -8,8 +8,8 @@ const auth = require('./authentication');
 
 const app = express()
 
-app.use(cookieParser());
 app.use(cors());
+app.use(cookieParser());
 
 
 /* Routes */

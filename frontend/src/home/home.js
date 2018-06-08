@@ -5,11 +5,16 @@ import Subscribe from './get-spotify.js';
 
 class Home extends React.Component {
     render() {
-        return(
+        return (
             <div>
-                <Top/>
-                <Connect/>
-                <Subscribe/>
+                <Top />
+                <Connect />
+
+                <p>
+                    {document.cookie}
+                </p>
+
+                <Subscribe />
             </div>
         );
     }

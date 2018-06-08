@@ -33,7 +33,6 @@ module.exports = {
     authCallback: function (req, res) {
         // your application requests refresh and access tokens
         // after checking the state parameter
-
         var code = req.query.code || null;
         var state = req.query.state || null;
         var storedState = req.cookies ? req.cookies[STATE_KEY] : null;
@@ -78,11 +77,7 @@ module.exports = {
                     });
 
                     // we can also pass the token to the browser to make requests from there
-                    res.redirect('/#' +
-                        querystring.stringify({
-                            access_token: access_token,
-                            refresh_token: refresh_token
-                        }));
+                    res.redirect('http://localhost:3000/faq');
                 } else {
                     res.redirect('/#' +
                         querystring.stringify({
@@ -94,6 +89,8 @@ module.exports = {
     },
 
     userInfo: function (req, res) {
+
+        console.log("cookies: " + JSON.stringify(req.cookies));
 
         const access_token = req.cookies ? req.cookies[ACCESS_TOKEN_KEY] : null;
 

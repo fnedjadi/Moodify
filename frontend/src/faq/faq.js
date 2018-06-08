@@ -10,10 +10,12 @@ class FAQ extends React.Component {
   }
 
   componentDidMount() {
+    const options = {
+      method: 'GET',
+      credentials: 'include',
+    }
 
-
-    fetch('http://localhost:8080/userInfo')
-    .then(response => response.json())
+    fetch('http://localhost:8080/userInfo', options)
     .then(response => {
       console.log("responded");
       console.log(response);
@@ -35,7 +37,9 @@ class FAQ extends React.Component {
           <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com"> Facebook </a></li>
           <li><a target="_blank" rel="noopener noreferrer" href="https://community.spotify.com"> Spotify </a></li>
         </ul>
-
+        <p>
+          {document.cookie}
+        </p>
         <h2>{this.state.userData.email}</h2>
       </div>
     );
