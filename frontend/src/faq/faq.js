@@ -2,8 +2,8 @@ import React from 'react';
 
 class FAQ extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       userData: "toto"
     }
