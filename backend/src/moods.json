@@ -1,0 +1,19 @@
+{
+    "moods": [
+        {
+            "name": "happy",
+            "feature": "accoustincess",
+            "value": 0
+        },
+        {
+            "name": "calm",
+            "feature": "accoustincess",
+            "value": 1
+        },
+        {
+            "name": "sad",
+            "feature": "accoustincess",
+            "value": 0
+        }
+    ]
+}
