@@ -103,9 +103,27 @@ small {
     padding: 14px 48px 13px;
 }
 
-.el-button+.el-button:focus, .el-button+.el-button:hover {
-    border-color: #8038C4 !important;
-    color: #8038C4 !important;
+#picker-mood{
+    text-align:center;
+    margin:auto;
+
+}
+.el-input__icon+.el-input__inner {
+    border-radius: 500px;
+}
+.el-add-button, .el-close-button {
+    border-color: rgba(128, 56, 196, 0) !important;
+}
+.el-close-button {
+    padding: 0px !important;
+    border: 0px !important;
+}
+
+.add-button, .close-button {
+    width: 90%;
+}
+.add-button:focus, .add-button:hover {
+    width: 100%;
 }
 
 .el-select-dropdown__item.selected.hover, .el-select-dropdown__item.selected {
