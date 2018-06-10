@@ -24,7 +24,7 @@ module.exports = {
             // use the access token to access the Spotify Web API
             request.get(options, function (error, response, body) {
                 if (!error && response.statusCode === 200) {
-                    callback(req, res, body)
+                    callback(req, res, error, body)
                 }
                 else if (!error) {
                     if (!!response.body)

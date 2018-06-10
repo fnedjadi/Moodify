@@ -7,7 +7,7 @@ const CLIENT_SECRET = '1f744596799f4f97a82a9dbf8d1b809c'; // Your secret
 const REDIRECT_URI = 'http://localhost:8080/callback'; // Your redirect uri
 const STATE_KEY = 'spotify_auth_state';
 const ACCESS_TOKEN_KEY = 'spotify_access_token';
-const AUTH_SCOPES = 'user-read-private user-read-email';
+const AUTH_SCOPES = 'user-read-private user-read-email playlist-modify-public';
 
 
 module.exports = {
@@ -66,17 +66,6 @@ module.exports = {
 
                     res.cookie(ACCESS_TOKEN_KEY, access_token);
 
-                    var options = {
-                        url: 'https://api.spotify.com/v1/me',
-                        headers: { 'Authorization': 'Bearer ' + access_token },
-                        json: true
-                    };
-
-                    // use the access token to access the Spotify Web API
-                    request.get(options, function (error, response, body) {
-                        console.log(body);
-                    });
-
                     // we can also pass the token to the browser to make requests from there
                     res.redirect('http://localhost:3000/');
                 } else {
@@ -90,7 +79,7 @@ module.exports = {
     },
 
     userInfo: function (req, res) {
-        utils.getUserData(req, res, function(req, res, data) {
+        utils.getUserData(req, res, function(req, res, error, data) {
             res.send(data);
         });
     }

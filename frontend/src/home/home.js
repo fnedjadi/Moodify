@@ -14,7 +14,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         fetch('http://localhost:8080/moods/playlist?access_token=' + cookie.load('spotify_access_token') + '&mood1=calm')
-            .then(response => response.text())
+            //.then(response => response.json())
             .then(response => {
                 console.log("responded");
                 console.log(response);
@@ -24,7 +24,6 @@ class Home extends React.Component {
                     testData: response
                 })
             })
-
     }
 
     render() {
@@ -32,6 +31,9 @@ class Home extends React.Component {
             <div>
                 <Top />
                 <Connect />
+                <h3>
+                    {document.cookie}
+                </h3>
                 <p>
                     {this.state.testData ? JSON.stringify(this.state.testData) : "noData"}
                 </p>
