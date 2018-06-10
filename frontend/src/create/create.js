@@ -29,7 +29,7 @@ class Create extends React.Component {
     );
 
     return (
-      <div>
+      <div id='create-page'>
         {page}
       </div>
     )

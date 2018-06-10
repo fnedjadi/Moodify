@@ -77,7 +77,7 @@ class TableMusic extends React.Component {
       <div>
         <Table
           className='create-table'
-          style={{width: '100%', height: '100%'}}
+          style={{width: '100%', height: '100%', background: 'transparent'}}
           columns={this.state.columns}
           data={this.state.data}
           border={true}

@@ -92,14 +92,15 @@ class Mood extends React.Component {
                 this.state.form.moods.map((Mood, index) => {
                   return (
                     <Form.Item key={index}>
-                    <Button className='el-close-button' onClick={this.removeMood.bind(this, Mood)}><img className='close-button' src={close} alt="Close icon"/></Button>
+                      <Button className='el-close-button' onClick={this.removeMood.bind(this, Mood)}><img className='close-button' src={close} alt="Close icon"/></Button>
                       <Select value={this.state.value} placeholder="Mood" clearable={true} onChange={this.onMoodChange.bind(this, index)}>
                         {
                           this.state.options.map(el => {
                             return <Select.Option key={el.value} label={el.label} value={el.value}/>
                           })
                         }
-                      </Select></Form.Item>
+                      </Select>
+                    </Form.Item>
                   )
                 })
               }

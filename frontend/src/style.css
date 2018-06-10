@@ -2,6 +2,7 @@ html, body {
     text-size-adjust: 100%;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    /*background-color: #000;*/
 }
 
 ul {
@@ -26,6 +27,14 @@ small {
     padding: 15px;
 }
 
+.header {
+    background-color: #000;
+    height: 80px;
+    line-height: 40px;
+    top: 0px;
+    border-color: #222326;
+}
+
 .spotify-logo {
     height: 30px;
 }
@@ -36,14 +45,6 @@ small {
     padding: 5%;
     padding-left: 16%;
     padding-right: 16%;
-}
-
-.header {
-    background-color: #000;
-    height: 80px;
-    line-height: 40px;
-    top: 0px;
-    border-color: #222326;
 }
 
 .container {
@@ -103,16 +104,23 @@ small {
     padding: 14px 48px 13px;
 }
 
+#create-page {
+    background: url('./img/5.jpg');
+    padding: 20px;
+    width: 100%;
+    top: 80px;
+    bottom: 0;
+    position: fixed;
+}
+
 #picker-mood{
     text-align:center;
     margin:auto;
 
 }
-.el-input__icon+.el-input__inner {
-    border-radius: 500px;
-}
 .el-add-button, .el-close-button {
-    border-color: rgba(128, 56, 196, 0) !important;
+    border-color: transparent !important;
+    background: transparent !important;
 }
 .el-close-button {
     padding: 0px !important;
@@ -126,6 +134,9 @@ small {
     width: 100%;
 }
 
+.el-input__icon+.el-input__inner {
+    border-radius: 500px;
+}
 .el-select-dropdown__item.selected.hover, .el-select-dropdown__item.selected {
     background-color: #8038C4 !important;
 }
