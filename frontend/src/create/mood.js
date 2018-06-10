@@ -13,7 +13,7 @@ class Mood extends React.Component {
         this.state = {
           form: {
             moods: [{
-              key: 1,
+              key: 0,
               value: ''
             }]
           },
@@ -46,7 +46,7 @@ class Mood extends React.Component {
       
       removeMood(item, e) {
         var index = this.state.form.moods.indexOf(item);
-      
+        
         if (index !== -1) {
           this.state.form.moods.splice(index, 1);
           this.forceUpdate();
