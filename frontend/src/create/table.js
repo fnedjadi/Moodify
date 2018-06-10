@@ -52,6 +52,14 @@ class TableMusic extends React.Component {
         artiste: 'Lady Gaga',
         title: 'Bad Romance',
         album: 'Bad Romance',
+       }, {
+        artiste: 'Lady Gaga',
+        title: 'Telephone',
+        album: 'Bad Romance',
+       }, {
+        artiste: 'Lady Gaga',
+        title: 'Alejandro',
+        album: 'Bad Romance',
        }]
     }
   }

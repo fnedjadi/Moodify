@@ -1,7 +1,6 @@
 import React from 'react';
 import cookie from 'react-cookies';
 
-
 class Menu extends React.Component {
 
   constructor(props) {

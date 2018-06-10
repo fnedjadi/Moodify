@@ -102,3 +102,12 @@ small {
     border-radius: 500px;
     padding: 14px 48px 13px;
 }
+
+.el-button+.el-button:focus, .el-button+.el-button:hover {
+    border-color: #8038C4 !important;
+    color: #8038C4 !important;
+}
+
+.el-select-dropdown__item.selected.hover, .el-select-dropdown__item.selected {
+    background-color: #8038C4 !important;
+}
