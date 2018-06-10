@@ -37,6 +37,8 @@ app.get('/userInfo', auth.userInfo);
 
 // Moods
 app.get('/moods/get', moods.get);
+app.get('/moods/playlist', moods.playlist);
+
 
 
 app.listen(8080, function () {

@@ -78,7 +78,7 @@ module.exports = {
                     });
 
                     // we can also pass the token to the browser to make requests from there
-                    res.redirect('http://localhost:3000/faq');
+                    res.redirect('http://localhost:3000/');
                 } else {
                     res.redirect('/#' +
                         querystring.stringify({
@@ -90,33 +90,8 @@ module.exports = {
     },
 
     userInfo: function (req, res) {
-        const access_token = req.query ? req.query.access_token : null;
-
-        if (!!access_token) {
-            var options = {
-                url: 'https://api.spotify.com/v1/me',
-                headers: { 'Authorization': 'Bearer ' + access_token },
-                json: true
-            };
-    
-            // use the access token to access the Spotify Web API
-            request.get(options, function (error, response, body) {
-                if (!error && response.statusCode === 200) {
-                    res.send(body);
-                }
-                else if (!error) {
-                    if (!!response.body)
-                        res.send(response.body)
-                    else
-                        res.send(response);
-                } else {
-                    res.send(error);
-                }
-            })
-        }
-        else {
-            res.status(401);
-            res.send("User not logged in");
-        }
+        utils.getUserData(req, res, function(req, res, data) {
+            res.send(data);
+        });
     }
 }
