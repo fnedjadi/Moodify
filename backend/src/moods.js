@@ -13,12 +13,17 @@ module.exports = {
 
 
     playlist: function (req, res) {
-        utils.createPlaylist(req, res, function(req, res, error, response){
-            const playlist_id = response.body.id;
 
-            
+        utils.getUserData(req, res, function(req, res, error, body) {
+            const user_id = body.id;
 
-            res.send(playlist_id);
-        });
+            utils.createPlaylist(req, res, user_id, function(req, res, error, body){
+                const playlist_id = body.id;
+    
+    
+    
+                res.send(user_id + ' -- ' + playlist_id);
+            });
+        })
     }
 }
