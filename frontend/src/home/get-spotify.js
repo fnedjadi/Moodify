@@ -5,7 +5,7 @@ class Subscribe extends React.Component {
         return(
             <div className='home-subscribe'>
                 <h2> Still not on Spofity</h2>
-                <p>
+                <p id='getspotify-text'>
                     Over 30 million tracks; thousands of curated playlists; 
                     Discover Weekly; Spotify Running; Radio; Chromecast, sound system, car, TV, and PlayStation integration; sharing and creating playlists with your friends... 
                     All of this is ready for you.

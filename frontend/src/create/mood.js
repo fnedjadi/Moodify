@@ -56,7 +56,7 @@ class Mood extends React.Component {
       }
       
       addMood(e) {
-  //      if (this.state.form.moods.length < this.state.options.length) {
+        if (this.state.form.moods.length < this.state.options.length) {
           var empty = false;
           this.state.form.moods.forEach((Mood, index) => {
             if (Mood.value === "") {
@@ -70,7 +70,7 @@ class Mood extends React.Component {
               value: ''
             });
             this.forceUpdate();
-    //      }
+          }
         }
       }
       

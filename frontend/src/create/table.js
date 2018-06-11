@@ -74,16 +74,17 @@ class TableMusic extends React.Component {
   
   render() {
     return (
-      <div>
+      <div id='playlist-table'>
         <Table
           className='create-table'
-          style={{width: '100%', height: '100%', background: 'transparent'}}
+          style={{width: '100%', height: '100%', background: 'transparent', margin:'0px auto 50px 26%'}}
           columns={this.state.columns}
           data={this.state.data}
           border={true}
           highlightCurrentRow={true}
           emptyText='N/A'
         />
+        <a className='button-addplaylist' target="_blank" rel="noopener noreferrer" href='https://www.spotify.com/signup/'>Add this playlist to my Spotify account!</a>
       </div>
     )
   }
