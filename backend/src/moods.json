@@ -1,0 +1,22 @@
+{
+    "moods": [
+        {
+            "id": 0,
+            "name": "happy",
+            "feature": "accoustincess",
+            "value": 0
+        },
+        {
+            "id": 1,
+            "name": "calm",
+            "feature": "accoustincess",
+            "value": 1
+        },
+        {
+            "id": 2,
+            "name": "sad",
+            "feature": "accoustincess",
+            "value": 0
+        }
+    ]
+}

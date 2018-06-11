@@ -2,7 +2,9 @@ const request = require('request');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+
 const auth = require('./authentication');
+const moods = require('./moods');
 
 /* Express */
 
@@ -25,12 +27,19 @@ app.get('/ping', function(req, res) {
 })
 
 
+// Authentication
 app.get('/login', auth.login);
 app.get('/callback', auth.authCallback);
 
 app.get('/logout', auth.logout);
 
 app.get('/userInfo', auth.userInfo);
+
+// Moods
+app.get('/moods/get', moods.get);
+app.get('/moods/playlist', moods.playlist);
+
+
 
 app.listen(8080, function () {
   console.log('Moodify Backend - Listening on port 8080')
