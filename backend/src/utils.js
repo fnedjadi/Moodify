@@ -40,5 +40,36 @@ module.exports = {
             res.status(401);
             res.send("User not logged in");
         }
+    },
+
+
+    createPlaylist(req, res, callback)
+    {
+        const mood1 = req.query.mood1
+        const access_token = req.query.access_token;
+        this.getUserData(req, res, function(req, res, error, data) {
+
+            // Creates the playlist
+            let options = {
+                url: 'https://api.spotify.com/v1/users/' + data.id + '/playlists',
+                body: {
+                    "name": 'Moodify ' + mood1 + ' Playlist'
+                },
+                headers: {
+                     'Authorization': 'Bearer ' + access_token,
+                     'Content-Type': 'application/json'
+                },
+                json: true
+            };
+            request.post(options, function (error, response, body) {
+                if (!error && response && (response.statusCode === 200 || response.statusCode === 201)) {
+                    callback(req, res, error, response)                    
+                } else {
+                   console.log('Error when creating playlist: ' + response ? response.statusCode : '');
+                   res.send(!!error ? error : response)
+                }
+            });
+        })
     }
+
 }

@@ -13,6 +13,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+        /*
         fetch('http://localhost:8080/moods/playlist?access_token=' + cookie.load('spotify_access_token') + '&mood1=calm')
             //.then(response => response.json())
             .then(response => {
@@ -24,6 +25,7 @@ class Home extends React.Component {
                     testData: response
                 })
             })
+            */
     }
 
     render() {
