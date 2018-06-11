@@ -132,12 +132,14 @@ small {
 }
 
 #create-page {
-    background: url('./img/5.jpg');
+    background: url('./img/2.jpg') no-repeat ;
+    background-size: 100%;
     padding: 20px;
     width: 100%;
     top: 80px;
     bottom: 0;
     position: fixed;
+    color: #ffffff;
 }
 
 #picker-mood{
@@ -172,4 +174,36 @@ small {
 }
 .el-select-dropdown__item.selected.hover, .el-select-dropdown__item.selected {
     background-color: #8038C4 !important;
+}
+
+#faq {
+    text-align: center;
+}
+#faq-title {
+    font-size: 70px;
+}
+
+.faq-logos {
+    display: flex;
+    box-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.faq-logo-li {
+    padding: 0px 20px 0px 20px;
+    width: 80%;
+}
+
+.faq-list {
+    margin-bottom: 80px;
+}
+.faq-list-li {
+    text-decoration: none;
+    color: black;
+}
+
+#contact {
+    text-align: center;
+    margin: 20px 20%;
+    text-decoration: none;
 }

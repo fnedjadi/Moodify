@@ -17,7 +17,13 @@ class Mood extends React.Component {
               value: ''
             }]
           },
-          options: [],
+          options: [{
+            key: '-1',
+            feature : 'none',
+            value: 'N/A',
+            name: 'N/A',
+            disabled: true
+          }],
           value: ''
         };
       }
@@ -58,8 +64,11 @@ class Mood extends React.Component {
         var index = this.state.form.moods.indexOf(item);
         
         if (index !== -1) {
-          this.state.form.moods.splice(index, 1);
-          this.forceUpdate();
+          let form = this.state.form;
+          form.moods.splice(index, 1);
+          this.setState({
+            form: form
+          });
         }
       
         e.preventDefault();
@@ -106,7 +115,7 @@ class Mood extends React.Component {
                       <Select value={this.state.value} placeholder="Mood" clearable={true} onChange={this.onMoodChange.bind(this, index)}>
                         {
                           this.state.options.map(option => {
-                            return <Select.Option key={option.key} label={option.name} value={option.value}/>
+                            return <Select.Option key={option.key} label={option.name} value={option.value} disabled={option.disabled} />
                           })
                         }
                       </Select>

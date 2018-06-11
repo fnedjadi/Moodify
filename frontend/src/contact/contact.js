@@ -5,7 +5,7 @@ import React from 'react';
 class Contact extends React.Component {
   render() {
     return (
-      <div id='contact-page'>
+      <div id='contact'>
         <h1>About us</h1> 
         <p>
           With Moodify, it’s easy to find the right music for your right mood.
