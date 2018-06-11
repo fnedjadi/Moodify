@@ -19,10 +19,10 @@ module.exports = {
 
             utils.createPlaylist(req, res, user_id, function(req, res, error, body){
                 const playlist_id = body.id;
-    
-    
-    
-                res.send(user_id + ' -- ' + playlist_id);
+                
+                utils.addTrack(req, res, user_id, playlist_id, function(req, res, error, body)  {
+                    res.send(user_id + ' -- ' + playlist_id);
+                })
             });
         })
     }

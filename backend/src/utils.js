@@ -70,14 +70,17 @@ module.exports = {
         });
     },
 
-    addTrack(req, res, user_id, track_id, callback)
+    addTrack(req, res, user_id, playlist_id, callback)
     {
         const access_token = req.query.access_token;
+        playlist_id = '2a39e1h6Rbi4wPLHrdxv5I'
 
         let options = {
-            url: 'https://api.spotify.com/v1/users/' + data.id + '/playlists',
+            url: 'https://api.spotify.com/v1/users/' + user_id + '/playlists/' + playlist_id + '/tracks',
             body: {
-                "name": 'Moodify ' + mood1 + ' Playlist'
+                "uris": [
+                    "spotify:track:3PK7tZzJxuoJYoik7j3p1H"
+                ]
             },
             headers: {
                     'Authorization': 'Bearer ' + access_token,
@@ -85,6 +88,8 @@ module.exports = {
             },
             json: true
         };
+
+        console.log(options);
         request.post(options, function (error, response, body) {
             if (!error && response && (response.statusCode === 200 || response.statusCode === 201)) {
                 callback(req, res, error, body)                    
