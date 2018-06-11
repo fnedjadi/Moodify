@@ -42,6 +42,30 @@ module.exports = {
         }
     },
 
+    getUserTopArtists: function(req, res, callback) {
+        const access_token = req.query.access_token;
+
+        var options = {
+            url: 'https://api.spotify.com/v1/me/top/artists?limit=5',
+            headers: { 'Authorization': 'Bearer ' + access_token },
+            json: true
+        };
+
+        // use the access token to access the Spotify Web API
+        request.get(options, function (error, response, body) {
+            if (!error && response.statusCode === 200) {
+                callback(req, res, error, body)
+            }
+            else if (!error) {
+                if (!!response.body)
+                    res.send(response.body)
+                else
+                    res.send(response);
+            } else {
+                res.send(error);
+            }
+        })
+    },
 
     createPlaylist(req, res, user_id, callback)
     {
@@ -96,6 +120,30 @@ module.exports = {
                 res.send(!!error ? error : response)
             }
         });
+    },
+
+    getUserRecommandations(req, res, artists_uris, moods, callback) {
+        const access_token = req.query.access_token;
+
+        var options = {
+            url: 'https://api.spotify.com/v1/recommendations?seed_artists=' + artists_uris[0],
+            headers: { 'Authorization': 'Bearer ' + access_token },
+            json: true
+        };
+
+        request.get(options, function (error, response, body) {
+            if (!error && response.statusCode === 200) {
+                callback(req, res, error, body)
+            }
+            else if (!error) {
+                if (!!response.body)
+                    res.send(response.body)
+                else
+                    res.send(response);
+            } else {
+                res.send(error);
+            }
+        })
     }
 
 }

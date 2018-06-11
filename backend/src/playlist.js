@@ -5,24 +5,23 @@ const utils = require('./utils')
 module.exports = {
 
     generate: function (req, res) {
-        let data = {
-            "tracks": [
-                {
-                    "name": "Bad Romance",
-                    "artist": "Lady Gaga",
-                    "album": "The Fame Monster",
-                    "duration": "4:55"
-                },
-                {
-                    "name": "Here Comes the Sun - Remastered",
-                    "artist": "The Beatles",
-                    "album": "Abbey Road (Remastered)",
-                    "duration": "3:06"
-                }
-            ]
-        }
-        res.status(200);
-        res.send(data);
+        utils.getUserTopArtists(req, res, function(req, res, error, body) {
+            let artists_uris = body.items.map(x => x.uri.replace('spotify:artist:', ''));
+            utils.getUserRecommandations(req, res, artists_uris, 'sad', function(req, res, error, body) {
+                const tracks = body.tracks.map(x => { 
+                    return {
+                        track_uri: x.uri,
+                        name: x.name,
+                        artist: x.artists[0].name,
+                        album: x.album.name,
+                        duration: x.duration_ms
+                    }
+                });
+
+                res.status(200);
+                res.send(tracks);
+            })
+        })
     },
 
     submit: function (req, res) {

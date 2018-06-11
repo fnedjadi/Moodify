@@ -7,7 +7,7 @@ const CLIENT_SECRET = '1f744596799f4f97a82a9dbf8d1b809c'; // Your secret
 const REDIRECT_URI = 'http://localhost:8080/callback'; // Your redirect uri
 const STATE_KEY = 'spotify_auth_state';
 const ACCESS_TOKEN_KEY = 'spotify_access_token';
-const AUTH_SCOPES = 'user-read-private user-read-email playlist-modify-public';
+const AUTH_SCOPES = 'user-read-private user-read-email playlist-modify-public user-top-read';
 
 
 module.exports = {
