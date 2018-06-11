@@ -17,6 +17,12 @@
             "name": "sad",
             "feature": "accoustincess",
             "value": 0
+        },
+        {
+            "id": 3,
+            "name": "test",
+            "feature": "debug",
+            "value": 0.8
         }
     ]
 }

@@ -65,6 +65,7 @@ module.exports = {
                         refresh_token = body.refresh_token;
 
                     res.cookie(ACCESS_TOKEN_KEY, access_token);
+                    console.log(access_token);
 
                     // we can also pass the token to the browser to make requests from there
                     res.redirect('http://localhost:3000/');
