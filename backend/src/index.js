@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const auth = require('./authentication');
 const moods = require('./moods');
+const playlist = require('./playlist');
 
 /* Express */
 
@@ -37,7 +38,8 @@ app.get('/userInfo', auth.userInfo);
 
 // Moods
 app.get('/moods/get', moods.get);
-app.get('/moods/playlist', moods.playlist);
+app.get('/playlist/generate', playlist.generate);
+app.post('/playlist/submit', playlist.submit);
 
 
 
