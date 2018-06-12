@@ -2,7 +2,7 @@ const request = require('request');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-
+const bodyParser = require('body-parser');
 const auth = require('./authentication');
 const moods = require('./moods');
 const playlist = require('./playlist');
@@ -11,6 +11,7 @@ const playlist = require('./playlist');
 
 const app = express()
 
+app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
 

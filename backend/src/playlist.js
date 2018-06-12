@@ -36,13 +36,10 @@ module.exports = {
     },
 
     submit: function (req, res) {
-        
-        res.status(200);
+
+        console.log(req.body);
         res.send('Playlist created.');
-    },
-
-    debug: function (req, res) {
-
+        /*
         utils.getUserData(req, res, function(req, res, error, body) {
             const user_id = body.id;
 
@@ -50,9 +47,12 @@ module.exports = {
                 const playlist_id = body.id;
                 
                 utils.addTrack(req, res, user_id, playlist_id, function(req, res, error, body)  {
-                    res.send(user_id + ' -- ' + playlist_id);
+
+                    res.status(200);
+                    res.send('Playlist created.');
                 })
             });
         })
+        */
     }
 }

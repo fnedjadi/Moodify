@@ -70,17 +70,14 @@ class TableMusic extends React.Component {
   }
 
   submitPlaylist() {
-    console.log('submitting...')
     fetch('http://localhost:8080/playlist/submit?access_token=' + cookie.load('spotify_access_token'), {
       method: 'POST',
       headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      body: this.state.data
+      body: JSON.stringify(this.state.data)
     }).then(res => { 
-
-      console.log(res.status)
       if (res.status === 200) {
         this.setState({ redirect: true });
       }
@@ -115,7 +112,7 @@ class TableMusic extends React.Component {
             highlightCurrentRow={true}
             emptyText='N/A'
           />          
-          <a className='button-addplaylist' target="_blank" rel="noopener noreferrer" onClick={this.submitPlaylist.bind(this)}>{this.state.redirect.toString()} Add this playlist to my Spotify account!</a>
+          <a className='button-addplaylist' target="_blank" rel="noopener noreferrer" onClick={this.submitPlaylist.bind(this)}>Add this playlist to my Spotify account!</a>
         </div>
         {this.renderRedirect()}
       </div>
