@@ -19,7 +19,7 @@ class TableMusic extends React.Component {
           label: "Artist",
           prop: "artiste",
           sortable: true,
-          width: 150,
+          width: 200,
           render: function (data) {
             return (
               <span>
@@ -30,12 +30,12 @@ class TableMusic extends React.Component {
         {
           label: "Song",
           prop: "name",
-          width: 160
+          width: 200
         },
         {
           label: "Album",
           prop: "album",
-          width: 160
+          width: 200
         },
         {
           label: "",
@@ -110,7 +110,7 @@ class TableMusic extends React.Component {
         <div id='playlist-table'>
           <Table
             className='create-table'
-            style={{ width: '100%', height: '100%', background: 'transparent', margin: '0px auto 50px 26%' }}
+            style={{ width: '100%', height: '100%', background: 'transparent', margin: '0px auto 50px 20%'}}
             columns={this.state.columns}
             data={this.state.data}
             border={true}

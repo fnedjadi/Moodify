@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     /*background-color: #000;*/
+    background: url('./img/faq-back.png') no-repeat ;
 }
 
 ul {
@@ -86,13 +87,14 @@ small {
     padding: 0px 10px 30px 10px;
     margin:0 auto;
     text-align: center;
+    background: whitesmoke;
 }
 
 .home-subscribe {
     padding: 20px;
     padding-bottom: 80px;
     text-align: center;
-    background: whitesmoke;
+    background: white;
 }
 #getspotify-text {
     margin: auto;
@@ -149,8 +151,7 @@ small {
 
 #playlist-table{
     text-align:center;
-    margin:auto;
-
+    margin:auto auto 80px auto;
 }
 
 .el-add-button, .el-close-button {
@@ -183,6 +184,9 @@ small {
 
 #faq {
     text-align: center;
+    bottom: 0;
+    top: 80px;
+    position: fixed;
 }
 #faq-title {
     font-size: 60px;
@@ -209,14 +213,9 @@ small {
 
 #contact {
     display: flex;
-    margin: 3%
+    margin: 1%
 }
-#contact-about{
+#contact-content{
     float: left;
-    width: 70%;
-}
-
-#contact-adress{
-    float: right;
-    margin-left: 5%;
+    width: 60%;
 }
