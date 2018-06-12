@@ -119,11 +119,19 @@ module.exports = {
         });
     },
 
-    getUserRecommandations(req, res, artists_uris, moods, callback) {
+    getUserRecommandations(req, res, artists_uris, target, callback) {
         const access_token = req.query.access_token;
 
+        console.log(target);
+        let url = 'https://api.spotify.com/v1/recommendations?seed_artists=' + artists_uris[0];
+
+        for (let feature in target) {
+            url += '&' + feature + '=' + target[feature];
+        }
+        console.log(url);
+
         var options = {
-            url: 'https://api.spotify.com/v1/recommendations?seed_artists=' + artists_uris[0],
+            url: url,
             headers: { 'Authorization': 'Bearer ' + access_token },
             json: true
         };
@@ -144,6 +152,19 @@ module.exports = {
     },
 
     getTargetFeatures: function(asked_moods) {
-        
+        let target_result = {};
+        asked_moods.forEach(mood => {
+            for (let feature in mood.target) {
+                if (!target_result[feature]) {
+                    target_result[feature] = mood.target[feature];
+                }
+                else {
+                    target_result[feature] = (target_result[feature] + mood.target[feature]) / 2;
+                }
+            }
+        })
+
+        //return asked_moods[0].target;
+        return target_result;
     }
 }

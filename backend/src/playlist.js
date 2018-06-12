@@ -18,7 +18,7 @@ module.exports = {
 
         utils.getUserTopArtists(req, res, function(req, res, error, body) {
             let artists_uris = body.items.map(x => x.uri.replace('spotify:artist:', ''));
-            utils.getUserRecommandations(req, res, artists_uris, 'sad', function(req, res, error, body) {
+            utils.getUserRecommandations(req, res, artists_uris, target_features, function(req, res, error, body) {
                 const tracks = body.tracks.map(x => { 
                     return {
                         track_uri: x.uri,
@@ -37,7 +37,7 @@ module.exports = {
 
     submit: function (req, res) {
         let tracks_uris = req.body.map(x => x.track_uri);
-        
+
         utils.getUserData(req, res, function(req, res, error, body) {
             const user_id = body.id;
 

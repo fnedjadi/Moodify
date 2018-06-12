@@ -3,26 +3,31 @@
         {
             "id": 0,
             "name": "happy",
-            "feature": "accoustincess",
-            "value": 0
+            "target": {
+                "target_acousticness": 0
+            }
         },
         {
             "id": 1,
             "name": "calm",
-            "feature": "accoustincess",
-            "value": 1
+            "target": {
+                "target_acousticness": 1
+            }
         },
         {
             "id": 2,
             "name": "sad",
-            "feature": "accoustincess",
-            "value": 0
+            "target": {
+                "target_acousticness": 0.8,
+                "target_danceability": 0.1
+            }
         },
         {
             "id": 3,
             "name": "test",
-            "feature": "debug",
-            "value": 0.8
+            "target": {
+                "debug": 0
+            }
         }
     ]
 }
