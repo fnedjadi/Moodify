@@ -69,7 +69,7 @@ module.exports = {
 
     createPlaylist(req, res, user_id, callback)
     {
-        const mood1 = req.query.mood1
+        const mood1 = req.query.mood1 || ""
         const access_token = req.query.access_token;
 
         // Creates the playlist
@@ -94,16 +94,13 @@ module.exports = {
         });
     },
 
-    addTrack(req, res, user_id, playlist_id, callback)
+    addTrack(req, res, user_id, playlist_id, tracks_uris, callback)
     {
         const access_token = req.query.access_token;
-
         let options = {
             url: 'https://api.spotify.com/v1/users/' + user_id + '/playlists/' + playlist_id + '/tracks',
             body: {
-                "uris": [
-                    "spotify:track:3PK7tZzJxuoJYoik7j3p1H"
-                ]
+                "uris": tracks_uris
             },
             headers: {
                     'Authorization': 'Bearer ' + access_token,

@@ -36,23 +36,20 @@ module.exports = {
     },
 
     submit: function (req, res) {
-
-        console.log(req.body);
-        res.send('Playlist created.');
-        /*
+        let tracks_uris = req.body.map(x => x.track_uri);
+        
         utils.getUserData(req, res, function(req, res, error, body) {
             const user_id = body.id;
 
             utils.createPlaylist(req, res, user_id, function(req, res, error, body){
                 const playlist_id = body.id;
                 
-                utils.addTrack(req, res, user_id, playlist_id, function(req, res, error, body)  {
+                utils.addTrack(req, res, user_id, playlist_id, tracks_uris, function(req, res, error, body)  {
 
                     res.status(200);
                     res.send('Playlist created.');
                 })
             });
         })
-        */
     }
 }
