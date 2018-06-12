@@ -176,6 +176,11 @@ small {
     background-color: #8038C4 !important;
 }
 
+.el-button:hover, .el-button:focus{
+    color: #8038C4 !important;
+    border-color: #8038C4 !important;
+}
+
 #faq {
     text-align: center;
 }
@@ -197,13 +202,21 @@ small {
 .faq-list {
     margin-bottom: 80px;
 }
-.faq-list-li {
+.faq-list-li, .contact-help {
     text-decoration: none;
-    color: black;
+    color: rgb(9, 165, 64);
 }
 
 #contact {
-    text-align: center;
-    margin: 20px 20%;
-    text-decoration: none;
+    display: flex;
+    margin: 3%
+}
+#contact-about{
+    float: left;
+    width: 70%;
+}
+
+#contact-adress{
+    float: right;
+    margin-left: 5%;
 }

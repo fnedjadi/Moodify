@@ -136,7 +136,7 @@ class Mood extends React.Component {
                 <Button className='el-add-button' onClick={this.addMood.bind(this)}><img className='add-button' src={add} alt="Add icon"/></Button>
               </Form.Item>
             </Form>
-            <Button type="success" onClick={this.handleSubmit.bind(this)}>Generate playlist</Button>
+            <Button onClick={this.handleSubmit.bind(this)}>Generate playlist</Button>
           </div>
         )
       }
