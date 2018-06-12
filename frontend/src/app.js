@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import cookie from 'react-cookies';
 
 import Header from './header/header.js';
 import Footer from './footer/footer.js';
@@ -33,7 +34,13 @@ const App = () => (
     <Router>
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/create" component={Create}/>
+        <Route path="/create" component={() => (
+          cookie.load('spotify_access_token') ? (
+            <Create/>
+          ) : (
+            <Redirect to="/"/>
+          )
+        )}/>
         <Route path="/faq" component={FAQ}/>
         <Route path="/contact" component={Contact}/>
       </Switch>
