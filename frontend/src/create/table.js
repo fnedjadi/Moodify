@@ -2,13 +2,14 @@ import React from 'react';
 import { Table } from 'element-react';
 import { Button } from 'element-react';
 import cookie from 'react-cookies';
+import  { Redirect } from 'react-router-dom'
 
 import 'element-theme-default';
 
 class TableMusic extends React.Component {
   constructor(props) {
     super(props);
-  
+
     this.state = {
       columns: [
         {
@@ -19,11 +20,11 @@ class TableMusic extends React.Component {
           prop: "artiste",
           sortable: true,
           width: 150,
-          render: function(data){
+          render: function (data) {
             return (
-            <span>
-              <span style={{marginLeft: '10px'}}>{data.artist}</span>
-            </span>)
+              <span>
+                <span style={{ marginLeft: '10px' }}>{data.artist}</span>
+              </span>)
           }
         },
         {
@@ -49,22 +50,41 @@ class TableMusic extends React.Component {
           }
         }
       ],
-      data: []
+      data: [],
+      redirect: false
     }
   }
 
   componentDidMount() {
     fetch('http://localhost:8080/playlist/generate?access_token=' + cookie.load('spotify_access_token') + '&moods=0,2')
-            .then(response => response.json())
-            .then(response => {
-                console.log("responded");
-                console.log(response);
-                console.log("responded");
+      .then(response => response.json())
+      .then(response => {
+        console.log("responded");
+        console.log(response);
+        console.log("responded");
 
-                this.setState({
-                    data: response
-                })
-            })
+        this.setState({
+          data: response
+        })
+      })
+  }
+
+  submitPlaylist() {
+    console.log('submitting...')
+    fetch('http://localhost:8080/playlist/submit?access_token=' + cookie.load('spotify_access_token'), {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: this.state.data
+    }).then(res => { 
+
+      console.log(res.status)
+      if (res.status === 200) {
+        this.setState({ redirect: true });
+      }
+    });
   }
 
   deleteRow(index) {
@@ -74,20 +94,30 @@ class TableMusic extends React.Component {
       data: [...data]
     })
   }
-  
+
+
+  renderRedirect() {
+    if (this.state.redirect) {
+      return <Redirect to='/'  />
+    }
+  }
+
   render() {
     return (
-      <div id='playlist-table'>
-        <Table
-          className='create-table'
-          style={{width: '100%', height: '100%', background: 'transparent', margin:'0px auto 50px 26%'}}
-          columns={this.state.columns}
-          data={this.state.data}
-          border={true}
-          highlightCurrentRow={true}
-          emptyText='N/A'
-        />
-        <a className='button-addplaylist' target="_blank" rel="noopener noreferrer" href='https://www.spotify.com/signup/'>Add this playlist to my Spotify account!</a>
+      <div style={{overflow: 'auto', height: '100%'}}>
+        <div id='playlist-table'>
+          <Table
+            className='create-table'
+            style={{ width: '100%', height: '100%', background: 'transparent', margin: '0px auto 50px 26%' }}
+            columns={this.state.columns}
+            data={this.state.data}
+            border={true}
+            highlightCurrentRow={true}
+            emptyText='N/A'
+          />          
+          <a className='button-addplaylist' target="_blank" rel="noopener noreferrer" onClick={this.submitPlaylist.bind(this)}>{this.state.redirect.toString()} Add this playlist to my Spotify account!</a>
+        </div>
+        {this.renderRedirect()}
       </div>
     )
   }
