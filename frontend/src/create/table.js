@@ -56,7 +56,8 @@ class TableMusic extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/playlist/generate?access_token=' + cookie.load('spotify_access_token') + '&moods=0,2')
+    fetch('http://localhost:8080/playlist/generate?access_token=' + cookie.load('spotify_access_token') +
+          '&moods=' + this.props.selected_moods.join(','))
       .then(response => response.json())
       .then(response => {
         console.log("responded");
@@ -70,7 +71,7 @@ class TableMusic extends React.Component {
   }
 
   submitPlaylist() {
-    fetch('http://localhost:8080/playlist/submit?access_token=' + cookie.load('spotify_access_token'), {
+    fetch('http://localhost:8080/playlist/submit?access_token=' + cookie.load('spotify_access_token') + '&name=' + this.props.playlist_name, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

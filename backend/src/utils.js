@@ -69,14 +69,14 @@ module.exports = {
 
     createPlaylist(req, res, user_id, callback)
     {
-        const mood1 = req.query.mood1 || ""
+        const name = req.query.name || ""
         const access_token = req.query.access_token;
 
         // Creates the playlist
         let options = {
             url: 'https://api.spotify.com/v1/users/' + user_id + '/playlists',
             body: {
-                "name": 'Moodify ' + mood1 + ' Playlist'
+                "name": 'Moodify ' + name + ' Playlist'
             },
             headers: {
                     'Authorization': 'Bearer ' + access_token,
@@ -163,8 +163,6 @@ module.exports = {
                 }
             }
         })
-
-        //return asked_moods[0].target;
         return target_result;
     }
 }

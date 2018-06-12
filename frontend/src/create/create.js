@@ -9,12 +9,16 @@ class Create extends React.Component {
     super(props);
   
     this.state = {
+      selected_moods: [],
+      playlist_name: "",
       hasSearch: false
     }
   }
 
-  handleClick() {
+  handleClick(selected_moods, playlist_name) {
     this.setState({
+      selected_moods: selected_moods,
+      playlist_name: playlist_name,
       hasSearch: true
     });
   }
@@ -23,7 +27,7 @@ class Create extends React.Component {
     const hasSearch = this.state.hasSearch;
     
     const page = hasSearch ? (
-      <TableMusic/>
+      <TableMusic selected_moods={this.state.selected_moods} playlist_name={this.state.playlist_name}/>
     ) : (
       <Mood onSearchClick={this.handleClick.bind(this)}/>
     );

@@ -5,6 +5,7 @@ import { Button, Select, Form } from 'element-react';
 import 'element-theme-default';
 import add from '../img/plus.png';
 import close from '../img/close.png';
+import { select } from 'react-cookies';
 
 class Mood extends React.Component {
     constructor(props) {
@@ -37,8 +38,8 @@ class Mood extends React.Component {
             return (
               {
                 key: mood.id,
-                feature : mood.feature,
-                value: mood.value,
+                feature : mood.target,
+                value: mood.id,
                 name: mood.name
             }
             )
@@ -49,15 +50,25 @@ class Mood extends React.Component {
       
       handleSubmit(e) {
         e.preventDefault();
+
       
-        this.refs.form.validate((valid) => {
-          if (valid) {
-            this.props.onSearchClick();
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
+        let selected_inputs = this.state.form.moods.map(x => x.value);
+        let selected_moods = selected_inputs.filter(x => x !== "");
+
+        let mood_names = selected_moods.map(id => this.state.options.find(elt => elt.key === id).name);
+        let playlist_name = mood_names.join(', ');
+
+        console.log(playlist_name);
+        if (selected_moods.length > 0) {
+          this.refs.form.validate((valid) => {
+            if (valid) {
+              this.props.onSearchClick(selected_moods, playlist_name);
+            } else {
+              console.log('error submit!!');
+              return false;
+            }
+          });
+        }
       }
       
       removeMood(item, e) {

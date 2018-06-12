@@ -15,7 +15,7 @@ module.exports = {
         moods_ids.forEach(x => asked_moods.push(mood_json.moods.find(elt => elt.id === x)));
 
         let target_features = utils.getTargetFeatures(asked_moods)
-
+        console.log(target_features);
         utils.getUserTopArtists(req, res, function(req, res, error, body) {
             let artists_uris = body.items.map(x => x.uri.replace('spotify:artist:', ''));
             utils.getUserRecommandations(req, res, artists_uris, target_features, function(req, res, error, body) {
