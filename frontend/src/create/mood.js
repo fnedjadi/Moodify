@@ -1,11 +1,9 @@
 import React from 'react';
-import Loading from './loading.js';
 import { Button, Select, Form } from 'element-react';
 
 import 'element-theme-default';
 import add from '../img/plus.png';
 import close from '../img/close.png';
-import { select } from 'react-cookies';
 
 class Mood extends React.Component {
     constructor(props) {
@@ -138,7 +136,6 @@ class Mood extends React.Component {
                 <Button className='el-add-button' onClick={this.addMood.bind(this)}><img className='add-button' src={add} alt="Add icon"/></Button>
               </Form.Item>
             </Form>
-            <Loading onSearchClick={this.props.onSearchClick}/>
             <Button type="success" onClick={this.handleSubmit.bind(this)}>Generate playlist</Button>
           </div>
         )

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Table } from 'element-react';
-import { Button } from 'element-react';
-import cookie from 'react-cookies';
 import  { Redirect } from 'react-router-dom'
+import cookie from 'react-cookies';
+import { Table, Button, Loading } from 'element-react';
 
 import 'element-theme-default';
 
@@ -11,6 +10,7 @@ class TableMusic extends React.Component {
     super(props);
 
     this.state = {
+      fullscreen: true,
       columns: [
         {
           type: 'index'
@@ -65,7 +65,8 @@ class TableMusic extends React.Component {
         console.log("responded");
 
         this.setState({
-          data: response
+          data: response,
+          fullscreen: false
         })
       })
   }
@@ -103,6 +104,9 @@ class TableMusic extends React.Component {
   render() {
     return (
       <div style={{overflow: 'auto', height: '100%'}}>
+        {
+          this.state.fullscreen && <Loading fullscreen={true} />
+        }
         <div id='playlist-table'>
           <Table
             className='create-table'
