@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'element-react';
 import { Button } from 'element-react';
+import cookie from 'react-cookies';
 
 import 'element-theme-default';
 
@@ -14,20 +15,20 @@ class TableMusic extends React.Component {
           type: 'index'
         },
         {
-          label: "Artiste",
+          label: "Artist",
           prop: "artiste",
           sortable: true,
           width: 150,
           render: function(data){
             return (
             <span>
-              <span style={{marginLeft: '10px'}}>{data.artiste}</span>
+              <span style={{marginLeft: '10px'}}>{data.artist}</span>
             </span>)
           }
         },
         {
           label: "Song",
-          prop: "title",
+          prop: "name",
           width: 160
         },
         {
@@ -48,20 +49,22 @@ class TableMusic extends React.Component {
           }
         }
       ],
-      data: [{
-        artiste: 'Lady Gaga',
-        title: 'Bad Romance',
-        album: 'Bad Romance',
-       }, {
-        artiste: 'Lady Gaga',
-        title: 'Telephone',
-        album: 'Bad Romance',
-       }, {
-        artiste: 'Lady Gaga',
-        title: 'Alejandro',
-        album: 'Bad Romance',
-       }]
+      data: []
     }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:8080/playlist/generate?access_token=' + cookie.load('spotify_access_token') + '&moods=0,2')
+            .then(response => response.json())
+            .then(response => {
+                console.log("responded");
+                console.log(response);
+                console.log("responded");
+
+                this.setState({
+                    data: response
+                })
+            })
   }
 
   deleteRow(index) {
