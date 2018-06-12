@@ -144,6 +144,9 @@ module.exports = {
                 res.send(error);
             }
         })
-    }
+    },
 
+    getTargetFeatures: function(asked_moods) {
+        
+    }
 }

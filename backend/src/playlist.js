@@ -5,6 +5,17 @@ const utils = require('./utils')
 module.exports = {
 
     generate: function (req, res) {
+        let moods_ids = req.query.moods ? req.query.moods.split(',') : [];
+        moods_ids = moods_ids.map(x => parseInt(x, 10));
+
+        let mood_file = fs.readFileSync('./src/moods.json');
+        let mood_json = JSON.parse(mood_file);
+
+        let asked_moods = []
+        moods_ids.forEach(x => asked_moods.push(mood_json.moods.find(elt => elt.id === x)));
+
+        let target_features = utils.getTargetFeatures(asked_moods)
+
         utils.getUserTopArtists(req, res, function(req, res, error, body) {
             let artists_uris = body.items.map(x => x.uri.replace('spotify:artist:', ''));
             utils.getUserRecommandations(req, res, artists_uris, 'sad', function(req, res, error, body) {

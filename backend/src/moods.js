@@ -5,10 +5,10 @@ const utils = require('./utils')
 module.exports = {
     get: function (req, res) {
 
-        let moodFile = fs.readFileSync('./src/moods.json');
-        let moodJSON = JSON.parse(moodFile);
+        let mood_file = fs.readFileSync('./src/moods.json');
+        let mood_json = JSON.parse(mood_file);
         res.status(200);
-        res.send(moodJSON.moods);
+        res.send(mood_json.moods);
     },
 
 
