@@ -119,7 +119,7 @@ class Mood extends React.Component {
               {
                 this.state.form.moods.map((Mood, index) => {
                   return (
-                    <Form.Item key={index}>
+                    <Form.Item key={index} style={{margin:'15px 0 0 0'}}>
                       <Button className='el-close-button' onClick={this.removeMood.bind(this, Mood)}><img className='close-button' src={close} alt="Close icon"/></Button>
                       <Select value={this.state.value} placeholder="Mood" clearable={true} onChange={this.onMoodChange.bind(this, index)}>
                         {
@@ -136,7 +136,7 @@ class Mood extends React.Component {
                 <Button className='el-add-button' onClick={this.addMood.bind(this)}><img className='add-button' src={add} alt="Add icon"/></Button>
               </Form.Item>
             </Form>
-            <Button onClick={this.handleSubmit.bind(this)}>Generate playlist</Button>
+            <Button className='el-generate-button' onClick={this.handleSubmit.bind(this)}>Generate playlist</Button>
           </div>
         )
       }

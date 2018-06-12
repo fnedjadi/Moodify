@@ -1,6 +1,5 @@
 import React from 'react';
-
-// https://www.spotify.com/us/about-us/contact/
+import link from '../img/link.png';
 
 class Contact extends React.Component {
   render() {
@@ -17,7 +16,10 @@ class Contact extends React.Component {
           </p>
 
           <h1>Customer Service and Support</h1>
-          <a className='contact-help' href="/faq"> Help site </a> 
+          <a className='contact-help' href="/faq">
+            Help site
+            <img style={{margin:'0 0 0 10px'}}src={link} alt="Link faq"/>
+          </a> 
         </div>
 
         <div id= 'contact-adress'>

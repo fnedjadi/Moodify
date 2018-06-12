@@ -163,10 +163,10 @@ small {
 }
 
 .add-button, .close-button {
-    width: 90%;
+    width: 70%;
 }
 .add-button:focus, .add-button:hover {
-    width: 100%;
+    width: 80%;
 }
 
 .el-input__icon+.el-input__inner {
@@ -176,7 +176,7 @@ small {
     background-color: #8038C4 !important;
 }
 
-.el-button:hover, .el-button:focus{
+.el-generate-button:hover, .el-generate-button:focus{
     color: #8038C4 !important;
     border-color: #8038C4 !important;
 }
@@ -185,7 +185,7 @@ small {
     text-align: center;
 }
 #faq-title {
-    font-size: 70px;
+    font-size: 60px;
 }
 
 .faq-logos {
@@ -196,7 +196,7 @@ small {
 }
 .faq-logo-li {
     padding: 0px 20px 0px 20px;
-    width: 80%;
+    width: 60%;
 }
 
 .faq-list {
@@ -204,7 +204,7 @@ small {
 }
 .faq-list-li, .contact-help {
     text-decoration: none;
-    color: rgb(9, 165, 64);
+    color: #09a540;
 }
 
 #contact {
