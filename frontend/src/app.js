@@ -28,6 +28,11 @@ const Contact = Loadable({
   loading: Loading,
 });
 
+const Compose = Loadable({
+  loader: () => import('./contact/compose.js'),
+  loading: Loading,
+});
+
 const App = () => (
   <div>
     <Header/>
@@ -43,6 +48,7 @@ const App = () => (
         )}/>
         <Route path="/faq" component={FAQ}/>
         <Route path="/contact" component={Contact}/>
+        <Route path="/compose" component={Compose}/>
       </Switch>
     </Router>
     <Footer/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import  { Redirect } from 'react-router-dom'
 import cookie from 'react-cookies';
-import { Table, Button, Loading } from 'element-react';
+import { Table, Button, Loading, Message } from 'element-react';
 
 import 'element-theme-default';
 
@@ -97,6 +97,10 @@ class TableMusic extends React.Component {
 
   renderRedirect() {
     if (this.state.redirect) {
+      Message({
+        message: "The playlist have been add.",
+        type: 'success'
+      });
       return <Redirect to='/'  />
     }
   }

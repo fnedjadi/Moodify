@@ -30,7 +30,6 @@ class Menu extends React.Component {
     else {
       return (<li> <a className="navigation-tab" href="http://localhost:8080/login"> Sign in </a> </li>);
     }
-
   }
 
   render() {

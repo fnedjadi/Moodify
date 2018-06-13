@@ -7,9 +7,14 @@ class Services extends React.Component {
       <div >
         <h1>Customer Service and Support</h1>
         <a className='contact-help' href="/faq">
-        Help site
-        <img style={{margin:'0 0 0 10px'}} src={link} alt="Link faq"/>
+          Help site
+          <img style={{margin:'0 0 0 10px'}} src={link} alt="Link faq"/>
         </a> 
+        <br/>
+        <a className='contact-help' href="/compose">
+          Send email
+          <img style={{margin:'0 0 0 10px'}} src={link} alt="Link email"/>
+        </a>
       </div>
     );
   }

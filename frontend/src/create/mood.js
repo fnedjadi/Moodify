@@ -39,8 +39,7 @@ class Mood extends React.Component {
                 feature : mood.target,
                 value: mood.id,
                 name: mood.name
-            }
-            )
+            })
           })
           this.setState({options: moods});
         })
