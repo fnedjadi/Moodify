@@ -8,7 +8,7 @@ module.exports = {
         let moods_ids = req.query.moods ? req.query.moods.split(',') : [];
         moods_ids = moods_ids.map(x => parseInt(x, 10));
 
-        let mood_file = fs.readFileSync('./src/moods.json');
+        let mood_file = fs.readFileSync('./src/moodsData.json');
         let mood_json = JSON.parse(mood_file);
 
         let asked_moods = []

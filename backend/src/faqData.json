@@ -1,0 +1,14 @@
+{
+    "questions": [
+      {
+        "id": 0,
+        "question": "What is Moodify ?",
+        "answer" : "Moodify allows you to create playlists on the go, simply by telling your current mood!"
+      },
+      {
+        "id": 1,
+        "question": "How are the playlists made ?",
+        "answer": "The playlists are created based on the selected moods combined to your musical tastes."
+      }
+    ]
+}

@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const auth = require('./authentication');
 const moods = require('./moods');
 const playlist = require('./playlist');
+const questions = require('./questions')
 
 /* Express */
 
@@ -41,6 +42,9 @@ app.get('/userInfo', auth.userInfo);
 app.get('/moods/get', moods.get);
 app.get('/playlist/generate', playlist.generate);
 app.post('/playlist/submit', playlist.submit);
+
+// FAQ
+app.get('/questions/get', questions.get)
 
 
 

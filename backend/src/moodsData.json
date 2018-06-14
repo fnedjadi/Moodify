@@ -2,31 +2,24 @@
     "moods": [
         {
             "id": 0,
-            "name": "happy",
+            "name": "Happy",
             "target": {
                 "target_acousticness": 0
             }
         },
         {
             "id": 1,
-            "name": "calm",
+            "name": "Calm",
             "target": {
                 "target_acousticness": 1
             }
         },
         {
             "id": 2,
-            "name": "sad",
+            "name": "Sad",
             "target": {
                 "target_acousticness": 0.8,
                 "target_danceability": 0.1
-            }
-        },
-        {
-            "id": 3,
-            "name": "test",
-            "target": {
-                "debug": 0
             }
         }
     ]
