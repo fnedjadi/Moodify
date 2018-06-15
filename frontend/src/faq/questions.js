@@ -36,7 +36,7 @@ class Questions extends React.Component {
             <ul>
             {
                 this.state.questions.map(el => {
-                    return <li key={el.key}><big>{el.question}</big><br/>{el.value}</li>
+                    return <li key={el.key}><br/><h3>{el.question}</h3>{el.value}</li>
                 })
             }
             </ul>
