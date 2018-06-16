@@ -4,22 +4,74 @@
             "id": 0,
             "name": "Happy",
             "target": {
-                "target_acousticness": 0
+                "target_danceability": 0.8,
+                "target_energy": 0.87,
+                "target_acousticness": 0.24,
+                "min_tempo": 70,
+                "max_tempo": 170,
+                "target_valence": 0.9
             }
         },
         {
             "id": 1,
             "name": "Calm",
             "target": {
-                "target_acousticness": 1
+                "target_acousticness": 0.8,
+                "target_energy": 0.4,
+                "target_tempo": 118
             }
         },
         {
             "id": 2,
             "name": "Sad",
             "target": {
-                "target_acousticness": 0.8,
-                "target_danceability": 0.1
+                "target_danceability": 0.1,
+                "target_valence": 0.1,
+                "max_valence": 0.45,
+                "target_tempo": 100
+            }
+        },
+        {
+            "id": 3,
+            "name": "Angry",
+            "target": {
+                "target_energy": 0.8,
+                "target_valence": 0.3,
+                "min_tempo": 120,
+                "target_tempo": 150
+            }
+        },
+        {
+            "id": 4,
+            "name": "In Love",
+            "target": {
+                "target_danceability": 0.55,
+                "target_energy": 0.45,
+                "target_tempo": 97,
+                "target_valence": 0.7
+            }
+        },
+        {
+            "id": 5,
+            "name": "Focused",
+            "target": {
+                "target_energy": 0.35,
+                "max_energy": 0.5,
+                "target_speechiness": 0,
+                "max_speechiness": 0.3,
+                "target_tempo": 135
+            }
+        },
+        {
+            "id": 6,
+            "name": "Energetic",
+            "target": {
+                "target_danceability": 0.6,
+                "min_danceability": 0.5,
+                "target_energy": 0.9,
+                "target_valence": 0.5,
+                "min_tempo": 100,
+                "target_tempo": 130
             }
         }
     ]
