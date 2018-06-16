@@ -31,7 +31,7 @@ class Compose extends React.Component {
   
     this.refs.form.validate((valid) => {
       if (valid) {
-        fetch("http://localhost:8080/playlist/submit", {
+        fetch("http://localhost:8080/questions/submit", {
           method: "POST",
           body: JSON.stringify(this.state.form),
           headers: {
@@ -82,10 +82,10 @@ class Compose extends React.Component {
       <div id='compose'>
         <h1> COMPOSE NEW MESSAGE </h1>
         <Form ref="form" model={this.state.form} labelPosition={'top'}  rules={this.state.rules} labelWidth="120">
-          <Form.Item label="Send to" prop="name">
+          <Form.Item label="Your email" prop="name">
             <Input className='input-compose' value={this.state.form.name} onChange={this.onChange.bind(this, 'name')}></Input>
           </Form.Item>
-          <Form.Item label="Message body" prop="desc">
+          <Form.Item label="Your message" prop="desc">
             <Input className='input-compose' type="textarea" value={this.state.form.desc} onChange={this.onChange.bind(this, 'desc')}></Input>
           </Form.Item>
           <Form.Item>

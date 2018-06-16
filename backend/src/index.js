@@ -1,8 +1,8 @@
-const request = require('request');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+
 const auth = require('./authentication');
 const moods = require('./moods');
 const playlist = require('./playlist');
@@ -44,8 +44,8 @@ app.get('/playlist/generate', playlist.generate);
 app.post('/playlist/submit', playlist.submit);
 
 // FAQ
-app.get('/questions/get', questions.get)
-
+app.get('/questions/get', questions.get);
+app.post('/questions/submit', questions.submit);
 
 
 app.listen(8080, function () {
