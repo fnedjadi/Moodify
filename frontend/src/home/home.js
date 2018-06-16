@@ -3,13 +3,14 @@ import Top from './top.js';
 import Connect from './spotify-connection.js';
 import Subscribe from './get-spotify.js';
 import cookie from 'react-cookies';
-import Connected from './home-connected.js';
+// import Connected from './home-connected.js';
+import HomeCreate from './acces-create.js';
 
 class Home extends React.Component {
     getUserHome() {
         if (cookie.load('spotify_access_token')) {
             return (
-                <Connected/>
+                    <HomeCreate/>
             );
         } else {
             return (

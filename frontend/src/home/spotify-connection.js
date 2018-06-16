@@ -1,9 +1,5 @@
 import React from 'react';
 
-// import SpotifyLogo from '../img/spotify-logo.png';
-// <img className='spotify-logo' src={SpotifyLogo} alt="Spotify logo"/>
-
-
 class Connect extends React.Component {
     render() {
         return(

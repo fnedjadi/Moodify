@@ -18,7 +18,6 @@ class TableMusic extends React.Component {
         {
           label: "Artist",
           prop: "artiste",
-          sortable: true,
           width: 200,
           render: function (data) {
             return (
