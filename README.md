@@ -1,4 +1,4 @@
-# README - Moddify
+# README - Moodify
 
 ## Introduction
 
